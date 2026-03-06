@@ -22,7 +22,11 @@ db = client["engllish2"]
 collection = db["chat"]
 
 #Initialize FastAPI application
-app = FastAPI()
+app = FastAPI(
+    title="English Chatbot",
+    description="AI-powered English Communication Practice Assistant",
+    version="1.0"
+)
 
 ## Define request structure for the chat API
 class ChatRequest(BaseModel):
@@ -105,4 +109,5 @@ def chat(request: ChatRequest):
     
      # Return response to the client
     return {"response": response.content}
+
     
